@@ -50,18 +50,22 @@ public class unilinksprocjob extends Job{
             	String password = "password";
             	String host = "54.215.151.111";
             	Client client = new Client();
-            	//String host = "localhost";
+            	 //String host = "localhost";
             	int port = 61613;
             	String queue = "/queue/unilinks";
             	//String destination = "";
             	StompJmsConnectionFactory factory = new StompJmsConnectionFactory();
             	factory.setBrokerURI("tcp://" + host + ":" + port);
             	Connection connection;
-            	
-            	  
+            	String FileName = new String();
+            	try
+            	{
             	URL url = getClass().getResource("UniversityDB.txt");
-            	String FileName = url.getPath();
-            	 
+            	FileName = url.getPath();
+            	//System.out.println(url.toString());
+            	}
+            	catch(Exception e)
+            	{System.out.println(e);}
             	//BufferedReader reader = new BufferedReader(new FileReader("UniversityDB.txt"));
             	BufferedReader reader = new BufferedReader(new FileReader(FileName));
             	String line = null;
